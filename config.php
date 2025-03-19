@@ -1,13 +1,13 @@
 <?php 
 $host = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $database = "db_sekolah";
 
-$db = new mysqli($host, $username, $password, $database);
+$db = mysqli_connect($host, $username, $password, $database);
 
 if ($db) {
-    echo "Koneksi Berhasil!";
+    
 } else {
     echo "Koneksi Gagal! : " . mysqli_connect_error();
 }

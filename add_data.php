@@ -18,18 +18,31 @@
             </a>
         </div>
     </nav>
-    <div class="container mt-5">
+
+    <?php if (isset($_GET['status'])): ?>
+        <p>
+            <?php
+            if ($_GET['status'] == 'sukses') {
+                echo "Pendaftaran siswa baru berhasil!";
+            } else {
+                echo "Pendaftaran gagal!";
+            }
+            ?>
+        </p>
+    <?php endif; ?>
+    <form action="proses_add.php" method="POST">
+        <div class="container mt-5">
             <div class="mb-3 row">
                 <label for="nisn" class="col-sm-2 col-form-label">NISN</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="nisn">
+                    <input type="text" class="form-control" name="nisn">
                 </div>
             </div>
 
             <div class="mb-3 row">
                 <label for="nama_siswa" class="col-sm-2 col-form-label">NAMA SISWA</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="nama_siswa">
+                    <input type="text" class="form-control" name="nama_siswa">
                 </div>
             </div>
 
@@ -38,41 +51,42 @@
                     JENIS KELAMIN
                 </label>
                 <div class="col-sm-6">
-                    <select id="kelamin" class="form-select" >
+                    <select name="kelamin" class="form-select">
                         <option selected>Silahkan pilih</option>
                         <option value="Laki-laki">Laki-laki</option>
                         <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
             </div>
-        
+
             <div class="mb-3 row">
                 <label for="foto_siswa" class="col-sm-2 col-form-label">
                     FOTO SISWA
                 </label>
                 <div class="col-sm-6">
-                    <input class="form-control" type="file" id="foto_siswa">
+                    <input class="form-control" type="file" name="foto_siswa">
                 </div>
-                
+
             </div>
 
             <div class="mb-3 row">
                 <label for="alamat" class="col-sm-2 col-form-label">ALAMAT</label>
                 <div class="col-sm-6">
-                    <textarea class="form-control" id="alamat" rows="3"></textarea>
+                    <textarea class="form-control" name="alamat" rows="3"></textarea>
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col">
-                <button type="button" class="btn btn-primary">
-                    <i class="fa fa-floppy-o" aria-hidden="true"> Tambah</i>
-                </button>
-                <button type="button" class="btn btn-danger">
-                    <i class="fa fa-reply" aria-hidden="true"></i>
-                    Batal
-                </button>
-            </div>
-            </div>
+                    <button type="submit" class="btn btn-primary" name="tambah">
+                        <i class="fa fa-floppy-o" aria-hidden="true"> Tambah</i>
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <i class="fa fa-reply" aria-hidden="true"></i>
+                        Batal
+                    </button>
+                </div>
+    </form>
+    </div>
     </div>
 </body>
 
